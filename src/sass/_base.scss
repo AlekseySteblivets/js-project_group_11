@@ -52,7 +52,22 @@ body {
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: 0.04em;
-  background-color: $black-color;
+  // background-color: $black-color;
+  background-image: url(../images/mobile/bg-body-mobile.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @media screen and (min-width: 768px) {
+    background-image: url(../images/tablet/bg-body-tablet.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url(../images/desctop/bg-body-desctop.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }
 
 // .visually-hidden {

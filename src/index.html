@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Webpack Starter Kit</title>
+    <title>Event Booster</title>
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" />
   </head>
@@ -13,10 +13,10 @@
     <header class="header">
       <div class="container header-container">
         <a class="header-container__logo" href="./index.html"></a>
-        <svg class="header-container__logo" role="img">
-          <use href="#"></use>
+        <svg class="icon-logo" role="img" width="110" height="90">
+          <use href="./images/sprite.svg#icon-logo-mobile"></use>
         </svg>
-        <h1 class>FIND BEST EVENTS AROUND THE WORLD</h1>
+        <h1 class="hero-title">FIND BEST EVENTS <br> THE WORLD</h1>
       </div>
       <form class="search js-form" id="search">
         <input class="input-search js-input__search" type="text" name="#" id="start" placeholder="Start searching">
@@ -38,8 +38,8 @@
       <div class="backdrop is-hidden">
         <div class="modal">
           <button class="modal-close">
-            <svg>
-              <use href="#"></use>
+            <svg width="15" height="10">
+              <use href="./images/sprite.svg#icon-close" ></use>
             </svg>
           </button>
           <div class="film-info-container"></div>
