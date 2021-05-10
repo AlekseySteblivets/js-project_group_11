@@ -1,0 +1,13 @@
+.search {
+  position: relative;
+}
+.input-country {
+  display: none;
+  position: absolute;
+  top: 22px;
+  left: 212px;
+  background-color: grey;
+}
+.input-country--active {
+  display: block;
+}
