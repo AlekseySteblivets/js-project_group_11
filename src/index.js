@@ -1,2 +1,4 @@
 import './sass/main.scss';
-import './js/form-country'
+
+import './js/form-country';
+
