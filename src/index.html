@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Webpack Starter Kit</title>
+    <title>Event Booster</title>
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" />
   </head>
@@ -13,10 +13,10 @@
     <header class="header">
       <div class="container header-container">
         <a class="header-container__logo" href="./index.html"></a>
-        <svg class="header-container__logo" role="img">
-          <use href="#"></use>
+        <svg class="icon-logo" role="img" width="110" height="90">
+          <use href="./images/sprite.svg#icon-logo-mobile"></use>
         </svg>
-        <h1 class>FIND BEST EVENTS AROUND THE WORLD</h1>
+        <h1 class="hero-title">FIND BEST EVENTS <br> THE WORLD</h1>
       </div>
       <form class="search js-form" id="search">
         <input class="input js-input__search" type="text" name="#" id="start" placeholder="Start searching">
@@ -35,25 +35,46 @@
         <div class="pagination">29</div>
     
       </div>
-      <div class="backdrop is-hidden">
-        <div class="modal">
-          <button class="modal-close">
-            <svg>
-              <use href="#"></use>
+      <!-- ====================== MODAL WINDOW ===================================== -->
+      <div class="modal">
+      
+        <div class="modal-container">
+          <button class="modal-close__btn">
+            <svg class="modal-close__svg">
+              <use href="./images/sprite.svg#icon-close"></use>
             </svg>
           </button>
-          <div class="film-info-container"></div>
-          <div class="button-add-container" style="margin-top: 20px">
-            <button class="modal-button buy-standart">BUY TICKETS</button>
-            <button class="modal-button buy-vip">BUY TICKETS</button>
+          <div class="info-container">
+            <div class="info-container__img"></div>
+            <div class="info-wrapper">
+              <div class="info-wrapper__poster"></div>
+              <div class="info-container__other">
+                <h3 class="modal-title">INFO</h3>
+                <p class="info-container__p info">Atlas Weekend is the largest music festival in Ukraine. More than 200
+                  artists will create a proper music festival
+                  atmosphere on 10 stages</p>
+                <h3 class="modal-title">WHEN</h3>
+                <p class="info-container__p when1">2021-06-09</p>
+                <p class="info-container__p when2">20:00 (Kyiv/Ukraine)</p>
+                <h3 class="modal-title">WHERE</h3>
+                <p class="info-container__p where1">Kyiv, Ukraine</p>
+                <p class="info-container__p where2">VDNH</p>
+                <h3 class="modal-title">WHO</h3>
+                <p class="info-container__p who">The Black Eyed Peas</p>
+                <h3 class="modal-title">PRICE</h3>
+                <p class="price--standart info-container__p">Standart <span class="price-standart">300</span> UAH</p>
+                <button class="modal-button buy-standart">BUY TICKETS</button>
+                <p class="price--vip info-container__p">VIP <span class="price-vip">1000</span> UAH</p>
+                <button class="modal-button buy-vip">BUY TICKETS</button>
+              </div>
+      
+            </div>
           </div>
           <button type="button" class="btn btn-primary button" data-action="load-more">
-    
             <a class="label" href="">MORE FROM THIS AUTHOR</a>
           </button>
-    
         </div>
-      </div>
+        <!-- ================================================================================== -->
     </main>
     <footer class="footer">
         <p class = "footer-text"> &copy 2021 | All Rights Reserved | Developed with
