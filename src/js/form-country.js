@@ -1,8 +1,8 @@
 
-import { refs } from './objects-refs';
+// import { refs } from './objects-refs';
 
-refs.formChooseEl.addEventListener('focus', onCountryChoose);
+// refs.formChooseEl.addEventListener('focus', onCountryChoose);
 
-function onCountryChoose() {
-    refs.countryInputEl.classList.add('input-country--active');
-};
+// function onCountryChoose() {
+//     refs.countryInputEl.classList.add('input-country--active');
+// };
