@@ -12,16 +12,27 @@
   <body>
     <header class="header">
       <div class="container header-container">
-        <a class="header-container__logo" href="./index.html"></a>
+        <a class="header-container__logo" href="./index.html">
         <svg class="icon-logo" role="img" width="110" height="90">
           <use href="./images/sprite.svg#icon-logo-mobile"></use>
         </svg>
-        <h1 class="hero-title">FIND BEST EVENTS <br> THE WORLD</h1>
-      </div>
-      <form class="search js-form" id="search">
-        <input class="input js-input__search" type="text" name="#" id="start" placeholder="Start searching">
-        <input class="input js-input__choose" type="text" name="#" id="choose" placeholder="Choose country">
-      </form>
+        </a>
+        <h1 class="hero-title">FIND BEST EVENTS <br>AROUND THE WORLD</h1>
+        </div>
+      <form class="form-search js-form" id="search">
+        <svg class="search-icon" role="img">
+          <use href="./images/sprite.svg#search-icon"></use>
+        </svg>
+        <input class="input js-form__search" type="text" name="#" id="start" placeholder="Start searching"/>
+        <svg class="choose-icon" role="img">
+          <use href="./images/sprite.svg#Polygon-1"></use>
+        </svg>
+        <select class="input input-choose js-form__choose" name="Choose country" id="choose">
+          <option value="#" hidden>Choose country</option>
+          <option value="#"></option>
+          <option value="#"></option>
+      </select>
+        </form>
     </header>
     <main>
       <div class="container home-page">
