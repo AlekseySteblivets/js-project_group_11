@@ -10,6 +10,7 @@
   background-color: rgba(0, 0, 0, 0.4);
   overflow: auto;
   transition: all 0.8s ease 0s;
+  z-index: 3;
 }
 .modal-close__btn {
   width: 25px;
