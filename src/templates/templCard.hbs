@@ -1,10 +1,10 @@
 {{#each this}}
 
 <li class="main-card">
-    <img class="img-main-cards" src="{{images[0]}}" alt="name" />
+    <img class="img-main-cards" src="{{images.2.url}}" alt="name" id="{{id}}"/>
     <p class="main-card-info"> {{name}}</p>
     <span class="main-card-description"> {{dates.start.localDate}} </span>
-    <span class="main-card-description"> {{dates.status.timezone}}</span>
+    <span class="main-card-description"> {{_embedded.venues.0.name}}</span>
 </li>
 
 {{/each}}
