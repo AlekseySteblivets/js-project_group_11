@@ -1,0 +1,25 @@
+<div class="info-container__img">
+  <img src="{{images.0.url}}" alt="">
+</div>
+<div class="info-wrapper">
+  <div class="info-wrapper__poster">
+    <img src="{{images.0.url}}" alt="">
+  </div>
+  <div class="info-container__other">
+    <h3 class="modal-title">INFO</h3>
+    <p class="info-container__p info">{{name}}</p>
+    <h3 class="modal-title">WHEN</h3>
+    <p class="info-container__p when1">{{dates.start.localDate}}</p>
+    <p class="info-container__p when2">{{dates.start.localTime}} ({{dates.timezone}})</p>
+    <h3 class="modal-title">WHERE</h3>
+    <p class="info-container__p where1">{{_embedded.venues.0.city.name}}, {{_embedded.venues.0.country.name}}</p>
+    <p class="info-container__p where2">{{_embedded.venues.0.name}}</p>
+    <h3 class="modal-title">WHO</h3>
+    <p class="info-container__p who">{{_embedded.attractions.0.name}}</p>
+    <h3 class="modal-title">PRICE</h3>
+    <p class="price--standart info-container__p">Standart <span class="price-standart">{{priceRanges.0.min}}-{{priceRanges.0.max}}</span> {{priceRanges.0.currency}}</p>
+    <button class="modal-button buy-standart">BUY TICKETS</button>
+    <p class="price--vip info-container__p">VIP <span class="price-vip">нужно найти значение!</span> UAH</p>
+    <button class="modal-button buy-vip">BUY TICKETS</button>
+  </div>
+</div>
