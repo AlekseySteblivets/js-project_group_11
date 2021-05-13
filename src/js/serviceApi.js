@@ -28,12 +28,13 @@ const fetchData = fetch(`${BASE_URL}/events.json?countryCode=${defaultEventCount
      })
      .then (data => {
         const event = data._embedded.events 
+
         urlImage(event);
         // console.log(templCardsForRender(event));
         appendEventMarkup(event);
         console.log(event);
         // searchImageForRenderCard(event);
-    });
+        });
 
 
 
@@ -61,3 +62,4 @@ function urlImage(event) {
     });
 return event;
 }
+
