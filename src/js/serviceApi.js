@@ -28,6 +28,7 @@ const fetchData = fetch(`${BASE_URL}/events.json?countryCode=${defaultEventCount
      })
      .then (data => {
         const event = data._embedded.events 
+        urlImage(event);
         // console.log(templCardsForRender(event));
         appendEventMarkup(event);
         console.log(event);
@@ -51,3 +52,12 @@ function appendEventMarkup(event) {
 //     }) 
 
 // }
+
+function urlImage(event) {
+    event.forEach(item => {
+            //  console.log(item.images); // достучались до массива объектов images 
+        item.images = item.images.find(item => item.ratio === '4_3') //возвращает первый элемнт, удовлетворяющий условию item.ratio === '4_3' (т.е. уникальный элемент)
+            // console.log(item.images = item.images.find(item => item.ratio === '4_3'));
+    });
+return event;
+}
