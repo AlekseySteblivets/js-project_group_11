@@ -1,12 +1,14 @@
 import templCardsForRender from '../templates/templCard.hbs';
-import {refs} from './objects-refs';
+import { refs } from './objects-refs';
+import tamplateCountryName from '../templates/countryName.hbs';
+import arrCountries from './countries-name';
 
 
 
 const KEY = '0PSOw59QQHJn14wudWQZ3vLoS3PmgpC6';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
 
-const defaultEventCountry = 'US';
+let defaultEventCountry = 'US';
 
 const countCardOnPage =  function getPagesSize () {
     if(window.innerWidth > 768 && window.innerWidth < 1280 ) {
@@ -17,7 +19,35 @@ const countCardOnPage =  function getPagesSize () {
     }
    
 }
- 
+// ====================== CHOOSE COUNTRY ==============================================
+const arrCountryName = arrCountries.map(country => country.name);
+const arrCountryCode = arrCountries.map(country => country.code);
+
+
+refs.formChooseEl.insertAdjacentHTML('beforeend', tamplateCountryName(arrCountryName));
+
+refs.formChooseEl.addEventListener('input', formChooseHandler);
+function formChooseHandler(e) {
+    const index = arrCountryName.indexOf(e.target.value);
+    const countryCode = arrCountryCode[index];
+    searchCountryOfName(countryCode);
+};
+function searchCountryOfName(countryCode) {
+fetch(`${BASE_URL}/events.json?countryCode=${countryCode}&size=${countCardOnPage()}&apikey=${KEY}`)
+.then(res => {
+    if(!res.ok) {
+        throw res;
+    }
+    return res.json();
+     })
+.then (data => {
+        const event = data._embedded.events
+        urlImage(event);
+        appendEventMarkup(event);
+        });
+};
+
+// ====================================================================================
 
 const fetchData = fetch(`${BASE_URL}/events.json?countryCode=${defaultEventCountry}&size=${countCardOnPage()}&apikey=${KEY}`)
 .then(res => {
@@ -41,7 +71,8 @@ const fetchData = fetch(`${BASE_URL}/events.json?countryCode=${defaultEventCount
 console.log(fetchData);
 
 function appendEventMarkup(event) {
-    refs.cardListEl.insertAdjacentHTML('beforeend', templCardsForRender(event));
+    // refs.cardListEl.insertAdjacentHTML('beforeend', templCardsForRender(event));
+    refs.cardListEl.innerHTML = templCardsForRender(event);
 };
 
 // function searchImageForRenderCard (array) {

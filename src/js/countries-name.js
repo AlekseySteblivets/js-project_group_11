@@ -1,6 +1,6 @@
 export default
 
-countriesName = [
+ [
     { code: 'US', name: 'United States Of America' },
     { code: 'AD', name: 'Andorra' },
     { code: 'AI', name: 'Anguilla' },
@@ -18,7 +18,6 @@ countriesName = [
     { code: 'CA', name: 'Canada' },
     { code: 'CL', name: 'Chile' },
     { code: 'CN', name: 'China' },
-    { code: 'CO', name: 'Colombia' },
     { code: 'CO', name: 'Colombia' },
     { code: 'CR', name: 'Costa Rica' },
     { code: 'HR', name: 'Croatia' },
