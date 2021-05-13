@@ -26,10 +26,9 @@ const fetchData = fetch(`${BASE_URL}/events.json?countryCode=${defaultEventCount
      })
      .then (data => {
         const event = data._embedded.events 
-        appendEventMarkup(data._embedded.events);
-        // console.log(data._embedded.events);
-        
-    });
+        appendEventMarkup(event);
+        console.log(data._embedded.events);
+        });
 
 
 console.log(fetchData);
@@ -37,5 +36,3 @@ console.log(fetchData);
 function appendEventMarkup(event) {
     refs.cardListEl.insertAdjacentHTML('beforeend', templCardsForRender(event));
 };
-
-
