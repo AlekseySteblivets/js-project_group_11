@@ -11,6 +11,11 @@
   overflow: auto;
   transition: all 0.8s ease 0s;
 }
+
+.modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
 .modal-close__btn {
   width: 25px;
   height: 25px;
