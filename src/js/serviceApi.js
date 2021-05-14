@@ -3,6 +3,13 @@ import { refs } from './objects-refs';
 import tamplateCountryName from '../templates/countryName.hbs';
 import arrCountries from './countries-name';
 
+import '@pnotify/core/dist/BrightTheme.css';
+import { alert, notice, info, success, error } from '@pnotify/core';
+
+
+
+
+
 
 
 const KEY = '0PSOw59QQHJn14wudWQZ3vLoS3PmgpC6';
@@ -33,18 +40,26 @@ function formChooseHandler(e) {
     searchCountryOfName(countryCode);
 };
 function searchCountryOfName(countryCode) {
-fetch(`${BASE_URL}/events.json?countryCode=${countryCode}&size=${countCardOnPage()}&apikey=${KEY}`)
-.then(res => {
-    if(!res.ok) {
-        throw res;
-    }
-    return res.json();
-     })
-.then (data => {
-        const event = data._embedded.events
-        urlImage(event);
-        appendEventMarkup(event);
-        });
+    fetch(`${BASE_URL}/events.json?countryCode=${countryCode}&size=${countCardOnPage()}&apikey=${KEY}`)
+        .then(res => {
+            if (!res.ok) {
+                throw res;
+            }
+            return res.json();
+        })
+        .then(data => {
+            const event = data._embedded.events
+            
+            urlImage(event);
+            appendEventMarkup(event);
+            
+        })
+        .catch(error => {
+            const myAlert = alert({
+  text: "I'm an info message."
+});
+            console.log(error)
+        })
 };
 
 // ====================================================================================
