@@ -44,7 +44,8 @@ fetch(`${BASE_URL}/events.json?countryCode=${countryCode}&size=${countCardOnPage
         const event = data._embedded.events
         urlImage(event);
         appendEventMarkup(event);
-        });
+})
+    .catch(error => alert('В этой стране нет мероприятий!'))
 };
 
 // ====================================================================================
