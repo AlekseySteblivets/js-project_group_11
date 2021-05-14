@@ -53,7 +53,24 @@ body {
   line-height: 1.25;
 
   // letter-spacing: 0.04em;
-  // background-color: $black-color;
+  background-color: $black-color;
+  // background-image: url(../images/mobile/bg-body-mobile.jpg);
+  // background-size: cover;
+  // background-repeat: no-repeat;
+
+  // @media screen and (min-width: 768px) {
+  //   background-image: url(../images/tablet/bg-body-tablet.jpg);
+  //   background-size: cover;
+  //   background-repeat: no-repeat;
+  // }
+
+  // @media screen and (min-width: 1280px) {
+  //   background-image: url(../images/desctop/bg-body-desctop.jpg);
+  //   background-size: cover;
+  //   background-repeat: no-repeat;
+  // }
+}
+.background {
   background-image: url(../images/mobile/bg-body-mobile.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -70,17 +87,6 @@ body {
     background-repeat: no-repeat;
   }
 }
-
-// .visually-hidden {
-//   position: absolute !important;
-//   clip: rect(1px 1px 1px 1px);
-//   clip: rect(1px 1px 1px 1px);
-//   padding: 0 !important;
-//   border: 0 !important;
-//   height: 1px !important;
-//   width: 1px !important;
-//   overflow: hidden;
-// }
 
 h1,
 h2,
