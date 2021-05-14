@@ -13,8 +13,11 @@
     font-size: 50px;
   }
 }
+.header-container {
+  position: relative;
+}
 
-.header {
+.header-container {
   padding-top: 78px;
   padding-bottom: 112px;
   // outline: 2px solid red;
