@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./index.js"],"names":[],"mappings":"oHAAA,4B","file":"main.abd529e98011ef524fcc.js","sourcesContent":["import './sass/main.scss';\r\nimport './js/serviceApi';\r\n"],"sourceRoot":""}
