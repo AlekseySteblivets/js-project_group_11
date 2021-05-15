@@ -50,6 +50,7 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
+    "alert": "^5.0.10",
     "core-js": "^3.6.5",
     "handlebars": "^4.7.6"
   }

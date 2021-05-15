@@ -3,14 +3,13 @@ import { refs } from './objects-refs';
 import tamplateCountryName from '../templates/countryName.hbs';
 import arrCountries from './countries-name';
 
+// ========== PNotify ============================================================
 import '@pnotify/core/dist/BrightTheme.css';
 import { alert, notice, info, success, error } from '@pnotify/core';
+import { defaults } from '@pnotify/core';
 
-
-
-
-
-
+defaults.addClass = 'my-pnotify';
+// ===============================================================================
 
 const KEY = '0PSOw59QQHJn14wudWQZ3vLoS3PmgpC6';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
@@ -55,13 +54,13 @@ function searchCountryOfName(countryCode) {
             
         })
         .catch(error => {
-            const myAlert = alert({
-  text: "I'm an info message."
-});
+            notice({
+                text: "В этой стране нет мероприятий! Выберите другую страну!",
+                style: 'top: 0',
+                });
             console.log(error)
         })
 };
-
 // ====================================================================================
 
 const fetchData = fetch(`${BASE_URL}/events.json?countryCode=${defaultEventCountry}&size=${countCardOnPage()}&apikey=${KEY}`)
