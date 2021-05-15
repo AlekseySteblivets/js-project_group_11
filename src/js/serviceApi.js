@@ -9,6 +9,7 @@ import { alert, notice, info, success, error } from '@pnotify/core';
 import { defaults } from '@pnotify/core';
 
 defaults.addClass = 'my-pnotify';
+// ===============================================================================
 
 const KEY = '0PSOw59QQHJn14wudWQZ3vLoS3PmgpC6';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
@@ -55,8 +56,7 @@ function searchCountryOfName(countryCode) {
         })
         .catch(error => {
             notice({
-                text: "В этой стране нет мероприятий! Выберите другую страну!",
-                style: 'top: 0',
+                text: "В этой стране нет мероприятий! Выберите другую страну!"
                 });
             console.log(error)
         })
