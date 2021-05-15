@@ -2,7 +2,7 @@
   font-size: 14px;
   line-height: 1.21;
   text-align: center;
-  padding-top: 60px;
+  // padding-top: 60px;
   padding-bottom: 27px;
   width: 252px;
   margin-left: auto;
@@ -26,12 +26,12 @@
   color: $search-field-color;
 }
 
-// .footer-icon-svg {
-//   width: 14px;
-//   height: 14px;
-//   fill: rgb(250, 3, 3);
-//   @media screen and (min-width: 768px) {
-//     width: 16px;
-//     height: 16px;
-//   }
-// }
+.footer-icon-svg {
+  width: 14px;
+  height: 14px;
+  fill: rgb(250, 3, 3);
+  @media screen and (min-width: 768px) {
+    width: 16px;
+    height: 16px;
+  }
+}

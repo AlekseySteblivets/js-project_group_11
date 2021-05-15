@@ -18,32 +18,39 @@
         </svg>
         </a>
         <h1 class="hero-title">FIND BEST EVENTS <br>AROUND THE WORLD</h1>
-        </div>
-      <form class="form-search js-form" id="search">
-        <svg class="search-icon" role="img">
-          <use href="./images/sprite.svg#search-icon"></use>
-        </svg>
-        <input class="input js-form__search" type="text" name="#" id="start" placeholder="Start searching"/>
-        <svg class="choose-icon" role="img">
-          <use href="./images/sprite.svg#Polygon-1"></use>
-        </svg>
-        <select class="input input-choose js-form__choose" name="Choose country" id="choose">
-          <option value="#">Choose country</option>
-          <!-- <option value="#"></option>
-          <option value="#"></option> -->
-      </select>
+        <form class="form-search js-form" id="search">
+          <div class="widget-input">
+          <svg class="search-icon" role="img">
+            <use href="./images/sprite.svg#search-icon"></use>
+          </svg>
+          <input class="input js-form__search" type="text" name="#" id="start" placeholder="Start searching" />
+          </div>
+          <div class="widget-input">
+          <svg class="choose-icon" role="img">
+            <use href="./images/sprite.svg#Polygon-1"></use>
+          </svg>
+          <select class="input input-choose js-form__choose" name="Choose country" id="choose">
+            <option value="#">Choose country</option>
+            <!-- <option value="#"></option>
+                  <option value="#"></option> -->
+          </select>
+          </div>
         </form>
+        </div>
+      
     </header>
 
     <section class="container background">
+      <!-- <section class=" background"> -->
     <main>
-     <div class="container" >
+     <div class="main-cards-list">
+      <!-- <div class="container"> -->
        <ul class="main-cards">
 
        </ul>   
       </div>
-      <div class="home-page">
-        <ul class="list js-list__"></ul>
+      <!-- <div class="home-page"> -->
+        <!-- <ul class="list js-list__"></ul> -->
         <div class ="block">
     <ul class="menu-pagination">   
       <li class="pagination"><a class="pagination-link active"href="#">1</a></li>
@@ -55,7 +62,7 @@
       <li class="pagination"><a class="pagination-link" href="#">29</a></li>
     </ul>
     </div>
-      </div>
+      <!-- </div> -->
       <!-- ====================== MODAL WINDOW ===================================== -->
       <div class="modal">
       
@@ -78,9 +85,7 @@
     <footer class="footer">
         <p class = "footer-text"> &copy 2021 | All Rights Reserved | Developed with
           <svg class="footer-icon-svg" width="14" height="14">
-            <use
-              href="data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgc3R5bGU9InBvc2l0aW9uOiBhYnNvbHV0ZTsgd2lkdGg6IDA7IGhlaWdodDogMDsgb3ZlcmZsb3c6IGhpZGRlbjsiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+DQo8ZGVmcz4NCjxzeW1ib2wgaWQ9Imljb24taGVhcnQiIHZpZXdCb3g9IjAgMCAzMiAzMiI+DQo8cGF0aCBmaWxsPSIjZmY2YjA4IiBzdHlsZT0iZmlsbDogdmFyKC0tY29sb3IxLCAjZmY2YjA4KSIgZD0iTTE2IDMwLjE0NGwtMi4yNC0yLjIxOGMtOC4zMi03LjI4Ny0xMy43Ni0xMi4xOTgtMTMuNzYtMTguMjE4IDAtNC45MTEgMy44NC04LjcxMyA4LjgtOC43MTMgMi43MiAwIDUuNDQgMS4yNjcgNy4yIDMuMzI3IDEuNzYtMi4wNTkgNC40OC0zLjMyNyA3LjItMy4zMjcgNC45NiAwIDguOCAzLjgwMiA4LjggOC43MTMgMCA2LjAyMC01LjQ0IDEwLjkzMS0xMy43NiAxOC4yMThsLTIuMjQgMi4yMTh6Ij48L3BhdGg+DQo8L3N5bWJvbD4NCjxzeW1ib2wgaWQ9Imljb24tbG9nbyIgdmlld0JveD0iMCAwIDMyIDMyIj4NCjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzgxODE4MSIgc3R5bGU9InN0cm9rZTogdmFyKC0tY29sb3IyLCAjODE4MTgxKSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbWl0ZXJsaW1pdD0iNCIgc3Ryb2tlLXdpZHRoPSIyLjY2NjciIGQ9Ik0yNi40MjcgMi42NjdoLTIwLjg1M2MtMS42MDUgMC0yLjkwNyAxLjMwMS0yLjkwNyAyLjkwN3YyMC44NTNjMCAxLjYwNSAxLjMwMSAyLjkwNyAyLjkwNyAyLjkwN2gyMC44NTNjMS42MDUgMCAyLjkwNy0xLjMwMSAyLjkwNy0yLjkwN3YtMjAuODUzYzAtMS42MDUtMS4zMDEtMi45MDctMi45MDctMi45MDd6Ij48L3BhdGg+DQo8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiM4MTgxODEiIHN0eWxlPSJzdHJva2U6IHZhcigtLWNvbG9yMiwgIzgxODE4MSkiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjQiIHN0cm9rZS13aWR0aD0iMi42NjY3IiBkPSJNOS4zMzMgMi42Njd2MjYuNjY3Ij48L3BhdGg+DQo8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiM4MTgxODEiIHN0eWxlPSJzdHJva2U6IHZhcigtLWNvbG9yMiwgIzgxODE4MSkiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjQiIHN0cm9rZS13aWR0aD0iMi42NjY3IiBkPSJNMjIuNjY3IDIuNjY3djI2LjY2NyI+PC9wYXRoPg0KPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjODE4MTgxIiBzdHlsZT0ic3Ryb2tlOiB2YXIoLS1jb2xvcjIsICM4MTgxODEpIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1taXRlcmxpbWl0PSI0IiBzdHJva2Utd2lkdGg9IjIuNjY2NyIgZD0iTTIuNjY3IDE2aDI2LjY2NyI+PC9wYXRoPg0KPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjODE4MTgxIiBzdHlsZT0ic3Ryb2tlOiB2YXIoLS1jb2xvcjIsICM4MTgxODEpIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1taXRlcmxpbWl0PSI0IiBzdHJva2Utd2lkdGg9IjIuNjY2NyIgZD0iTTIuNjY3IDkuMzMzaDYuNjY3Ij48L3BhdGg+DQo8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiM4MTgxODEiIHN0eWxlPSJzdHJva2U6IHZhcigtLWNvbG9yMiwgIzgxODE4MSkiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjQiIHN0cm9rZS13aWR0aD0iMi42NjY3IiBkPSJNMi42NjcgMjIuNjY3aDYuNjY3Ij48L3BhdGg+DQo8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiM4MTgxODEiIHN0eWxlPSJzdHJva2U6IHZhcigtLWNvbG9yMiwgIzgxODE4MSkiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjQiIHN0cm9rZS13aWR0aD0iMi42NjY3IiBkPSJNMjIuNjY3IDIyLjY2N2g2LjY2NyI+PC9wYXRoPg0KPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjODE4MTgxIiBzdHlsZT0ic3Ryb2tlOiB2YXIoLS1jb2xvcjIsICM4MTgxODEpIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1taXRlcmxpbWl0PSI0IiBzdHJva2Utd2lkdGg9IjIuNjY2NyIgZD0iTTIyLjY2NyA5LjMzM2g2LjY2NyI+PC9wYXRoPg0KPC9zeW1ib2w+DQo8c3ltYm9sIGlkPSJpY29uLW1hZ25pZmllciIgdmlld0JveD0iMCAwIDMyIDMyIj4NCjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3R5bGU9InN0cm9rZTogdmFyKC0tY29sb3IzLCAjZmZmKSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbWl0ZXJsaW1pdD0iNCIgc3Ryb2tlLXdpZHRoPSIyLjY2NjciIGQ9Ik0xNC42NjcgMjUuMzMzYzUuODkxIDAgMTAuNjY3LTQuNzc2IDEwLjY2Ny0xMC42NjdzLTQuNzc2LTEwLjY2Ny0xMC42NjctMTAuNjY3Yy01Ljg5MSAwLTEwLjY2NyA0Ljc3Ni0xMC42NjcgMTAuNjY3czQuNzc2IDEwLjY2NyAxMC42NjcgMTAuNjY3eiI+PC9wYXRoPg0KPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHlsZT0ic3Ryb2tlOiB2YXIoLS1jb2xvcjMsICNmZmYpIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1taXRlcmxpbWl0PSI0IiBzdHJva2Utd2lkdGg9IjIuNjY2NyIgZD0iTTI4IDI4bC01LjgtNS44Ij48L3BhdGg+DQo8L3N5bWJvbD4NCjwvZGVmcz4NCjwvc3ZnPg0KDQo=#icon-heart">
-            </use>
+              <use href="./images/sprite.svg#heart"></use>
           </svg>
           by 
           <a class="link" href="http://goit.ua" target="_blank" rel="noopener noreferrer">GoIT Students</a>
