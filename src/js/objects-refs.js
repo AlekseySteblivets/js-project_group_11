@@ -8,4 +8,7 @@ export const refs = {
     standartBuyBtn: document.querySelector('.buy-standart'),
     vipBuyBtn: document.querySelector('.buy-vip'),
     aboutAuthorBtn: document.querySelector('.btn-primary'),
+    modalContainer: document.querySelector('.info-container'),
+    modalWindow: document.querySelector('.modal'),
 };
+

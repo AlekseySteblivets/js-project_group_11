@@ -1,10 +1,17 @@
 {{#each this}}
 
-<li class="main-card">
-    <img class="img-main-cards" src="{{images.2.url}}" alt="name" id="{{id}}"/>
+<li class="main-card" id="{{id}}">
+    <img class="img-main-cards" src="{{images.url}}" alt="name"/>
     <p class="main-card-info"> {{name}}</p>
     <span class="main-card-description"> {{dates.start.localDate}} </span>
     <span class="main-card-description"> {{_embedded.venues.0.name}}</span>
 </li>
 
+    {{!-- {{#each images}}
+        {{#if images.ratio = '4_3'}}
+        <img class="img-main-cards" src="{{images.url}}" />
+        {{/if}}
+    {{/each}} --}}
+
 {{/each}}
+

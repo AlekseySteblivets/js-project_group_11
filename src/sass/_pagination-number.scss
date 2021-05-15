@@ -1,0 +1,32 @@
+.block {
+  width: 233px;
+  height: 30px;
+  margin-bottom: 60px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.menu-pagination {
+  display: flex;
+  justify-content: space-around;
+}
+
+.pagination-link {
+  cursor: pointer;
+  color: $white-color;
+  font-size: 14px;
+  line-height: 1.21;
+  width: 30px;
+  height: 30px;
+  padding: 5px 12px;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+.active,
+.pagination-link:hover {
+  color: $accent-text-color;
+  border: 1px solid $accent-text-color;
+  box-sizing: border-box;
+  border-radius: 10px 0px;
+}

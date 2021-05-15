@@ -1,5 +1,7 @@
 import './sass/main.scss';
 import './js/serviceApi';
 import './js/fierstLoadEvent';
-import './js/logic-input';
+
+import './js/modalLogic';
+import './js/modalCloseLogic'
 
