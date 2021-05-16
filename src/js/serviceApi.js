@@ -1,8 +1,5 @@
 import templCardsForRender from '../templates/templCard.hbs';
 import { refs } from './objects-refs';
-
-const debounce = require('lodash.debounce');
-
 import tamplateCountryName from '../templates/countryName.hbs';
 import arrCountries from './countries-name';
 
@@ -14,13 +11,10 @@ defaults.addClass = 'my-pnotify';
 // ===============================================================================
 
 
-
 const KEY = '0PSOw59QQHJn14wudWQZ3vLoS3PmgpC6';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
 
-
-
-const defaultEventCountry = 'US';
+let defaultEventCountry = 'US';
 
 const countCardOnPage = function getPagesSize() {
   if (window.innerWidth > 768 && window.innerWidth < 1280) {
@@ -44,10 +38,6 @@ function formChooseHandler(e) {
   const countryCode = arrCountryCode[index];
   searchCountryOfName(countryCode);
 }
-
-// -------------------------------------- logic input by keyword------------>
-
-
 function searchCountryOfName(countryCode) {
 
     fetch(`${BASE_URL}/events.json?countryCode=${countryCode}&size=${countCardOnPage()}&apikey=${KEY}`)
@@ -90,34 +80,6 @@ const fetchData = fetch(
 fetchData.then(data => {
   const event = data._embedded.events;
 
-
-refs.formSearchEl.addEventListener('input', debounce(onSearch, 800))
-
-function onSearch(e) {
-    e.preventDefault();
-
-    let searchQuery = e.target.value;
-
-    const fetchData = fetch(
-        `${BASE_URL}/events.json?keyword=${searchQuery}&size=${countCardOnPage()}&apikey=${KEY}`,
-    )
-        .then(res => {
-            if (!res.ok) {
-                throw res;
-            }
-            return res.json();
-        })
-        .then(data => {
-    
-            return data._embedded.events;
-      
-        })
-        .then(data => appendEventMarkup(data))
-        .catch(error => console.log(error))
-        .finally(() => setTimeout(() => {
-            refs.formSearchEl.value = '';
-        }, 1000));
-
   urlImage(event);
   // console.log(templCardsForRender(event));
   appendEventMarkup(event);
@@ -130,7 +92,6 @@ function appendEventMarkup(event) {
   // refs.cardListEl.insertAdjacentHTML('beforeend', templCardsForRender(event));
   refs.cardListEl.innerHTML = templCardsForRender(event);
 }
-
 
 // function searchImageForRenderCard (array) {
 //     array.forEach(item => {
@@ -150,13 +111,5 @@ function urlImage(event) {
   });
   return event;
 }
-
-
-// ------------------------------------------------------------------------------------->
-
-
-function appendEventMarkup(event) {
-    refs.cardListEl.innerHTML = templCardsForRender(event);
-};
 
 export { fetchData, urlImage };
