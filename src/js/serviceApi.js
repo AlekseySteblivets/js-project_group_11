@@ -3,6 +3,10 @@ import { refs } from './objects-refs';
 import tamplateCountryName from '../templates/countryName.hbs';
 import arrCountries from './countries-name';
 
+
+import debounce from 'lodash.debounce';
+
+
 // ========== PNotify ============================================================
 import '@pnotify/core/dist/BrightTheme.css';
 import { alert, notice, info, success, error } from '@pnotify/core';
@@ -113,3 +117,43 @@ function urlImage(event) {
 }
 
 export { fetchData, urlImage };
+// 
+  
+  
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++EventSearchByKeyword++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  
+refs.formSearchEl.addEventListener('input', debounce(onSearch, 800))
+
+function onSearch(e) {
+  e.preventDefault();
+
+  let searchQuery = e.target.value;
+
+  return fetch(
+    `${BASE_URL}/events.json?keyword=${searchQuery}&size=${countCardOnPage()}&apikey=${KEY}`,
+  
+  )
+    .then(res => {
+     
+      if (!res.ok) {
+        throw res;
+      }
+      return res.json();
+    })
+    .then(data => {
+    
+      return data._embedded.events;
+      
+    })
+    .then(data => {
+      urlImage(data)
+      console.log(data);
+      appendEventMarkup(data)
+    })
+      
+    .catch(error => console.log(error))
+    .finally(() => setTimeout(() => {
+      refs.formSearchEl.value = '';
+    }, 1000));
+}
