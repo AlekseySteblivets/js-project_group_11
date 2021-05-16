@@ -18,7 +18,8 @@ defaults.addClass = 'my-pnotify';
 const KEY = '0PSOw59QQHJn14wudWQZ3vLoS3PmgpC6';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
 
-let defaultEventCountry = 'US';
+let defaultEventCountry = '';
+let keyword = '';
 
 const countCardOnPage = function getPagesSize() {
   if (window.innerWidth > 768 && window.innerWidth < 1280) {
@@ -40,11 +41,12 @@ refs.formChooseEl.addEventListener('input', formChooseHandler);
 function formChooseHandler(e) {
   const index = arrCountryName.indexOf(e.target.value);
   const countryCode = arrCountryCode[index];
+  defaultEventCountry = countryCode;
   searchCountryOfName(countryCode);
 }
 function searchCountryOfName(countryCode) {
 
-    fetch(`${BASE_URL}/events.json?countryCode=${countryCode}&size=${countCardOnPage()}&apikey=${KEY}`)
+    fetch(`${BASE_URL}/events.json?countryCode=${countryCode}&keyword=${keyword}&size=${countCardOnPage()}&apikey=${KEY}`)
         .then(res => {
             if (!res.ok) {
                 throw res;
@@ -69,7 +71,7 @@ function searchCountryOfName(countryCode) {
 // ====================================================================================
 
 const fetchData = fetch(
-  `${BASE_URL}/events.json?countryCode=${defaultEventCountry}&size=${countCardOnPage()}&apikey=${KEY}`,
+  `${BASE_URL}/events.json?countryCode=${defaultEventCountry}&keyword=${keyword}&size=${countCardOnPage()}&apikey=${KEY}`,
 )
   .then(res => {
     if (!res.ok) {
@@ -126,12 +128,10 @@ export { fetchData, urlImage };
 refs.formSearchEl.addEventListener('input', debounce(onSearch, 800))
 
 function onSearch(e) {
-  e.preventDefault();
-
   let searchQuery = e.target.value;
-
+  keyword = searchQuery;
   return fetch(
-    `${BASE_URL}/events.json?keyword=${searchQuery}&size=${countCardOnPage()}&apikey=${KEY}`,
+    `${BASE_URL}/events.json?keyword=${keyword}&countryCode=${defaultEventCountry}&size=${countCardOnPage()}&apikey=${KEY}`,
   
   )
     .then(res => {
@@ -153,7 +153,4 @@ function onSearch(e) {
     })
       
     .catch(error => console.log(error))
-    .finally(() => setTimeout(() => {
-      refs.formSearchEl.value = '';
-    }, 1000));
 }
