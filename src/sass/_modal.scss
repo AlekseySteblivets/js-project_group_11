@@ -10,6 +10,7 @@
   background-color: rgba(0, 0, 0, 0.4);
   overflow: auto;
   transition: all 0.8s ease 0s;
+  z-index: 9;
 }
 
 .modal.is-open {
@@ -129,6 +130,9 @@
     height: 416px;
     background-color: gray;
   }
+  .info-wrapper__poster img {
+    object-fit: cover;
+  }
   .btn-primary {
     margin: 45px auto 104px;
   }
@@ -167,6 +171,9 @@
     width: 360px;
     height: 641px;
     background-color: gray;
+  }
+  .info-wrapper__poster img {
+    object-fit: cover;
   }
   .btn-primary {
     margin: 45px auto 104px;
