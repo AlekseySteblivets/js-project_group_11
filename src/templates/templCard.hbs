@@ -1,11 +1,15 @@
 {{#each this}}
-
-<li class="main-card" id="{{id}}">
+{{!-- <div class="card-img-div"> --}}
+<li class="main-card animate__animated animate__flipInX " id="{{id}}">
+    <div class="card-img-div">
     <img class="img-main-cards" src="{{images.url}}" alt="name"/>
+</div>
     <p class="main-card-info"> {{name}}</p>
     <span class="main-card-description"> {{dates.start.localDate}} </span>
     <span class="main-card-description"> {{_embedded.venues.0.name}}</span>
+
 </li>
+
 
     {{!-- {{#each images}}
         {{#if images.ratio = '4_3'}}
