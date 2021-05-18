@@ -1,10 +1,54 @@
-// .card-img-div {
-//   width: 128px;
-//   height: 161px;
-//   border-radius: 50px 0;
-//   display: inline-block;
+// .card-img-div:hover {
+//   @keyframes bounce {
+//     0%,
+//     20%,
+//     60%,
+//     100% {
+//       transform: translateY(0);
+//       transform: translateY(0);
+//     }
+//     40% {
+//       transform: translateY(-10px);
+//       transform: translateY(-10px);
+//     }
+//     80% {
+//       transform: translateY(-5px);
+//       transform: translateY(-5px);
+//     }
+//   }
+//   -webkit-box-shadow: 0 5px 2px -3px rgba(173, 35, 139, 0.1),
+//     0 1px 0px rgba(0, 0, 0, 0.1);
+//   -moz-box-shadow: 0 5px 2px -3px rgba(173, 35, 139, 0.1),
+//     0 1px 0px rgba(173, 35, 139, 0.1);
+//   box-shadow: 0 5px 2px -3px rgba(173, 35, 139, 0.1),
+//     0 1px 0px rgba(173, 35, 139, 0.1);
 // }
+.img-main-cards:hover {
+  // -moz-box-shadow: 8px 15px 0px #00c2f1;
+  // -webkit-box-shadow: 8px 15px 0px #00c2f1;
+  // box-shadow: 8px 15px 0px #00c2f1;
+  // -webkit-transition: all 500ms ease;
 
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(173, 35, 139, 0.9),
+    -5px -5px 5px rgba(173, 35, 139, 0.9);
+  -moz-box-shadow: 0px 0px -10px 0px rgba(173, 35, 139, 0.9),
+    -5px -5px 5px rgba(173, 35, 139, 0.9);
+  box-shadow: 0px 0px 10px rgba(173, 35, 139, 0.9),
+    -5px -5px 5px rgba(173, 35, 139, 0.8);
+
+  cursor: pointer;
+  transform: scale(1.08);
+  transition: transform var(--animation-duration) var(--timing-function);
+
+  // width: 128px;
+  // height: 161px;
+  // border-radius: 50px 0;
+  // display: inline-block;
+}
+
+// .img-main-cards:hover {
+//   transform: scale(2.03);
+// }
 .img-main-cards {
   width: 128px;
   height: 161px;
@@ -15,6 +59,7 @@
   object-fit: cover;
   display: inline-block;
   margin-bottom: 5px;
+
   @media screen and(min-width:768px) {
     width: 180px;
     height: 227px;
@@ -44,6 +89,8 @@
   }
 }
 .main-card {
+  --animate-duration: 2s;
+
   position: relative;
   color: $white-color;
   margin-left: 14px;
@@ -52,7 +99,7 @@
   @media screen and(min-width: 320px) and(max-width:767px) {
     flex-basis: calc(100% / 2 - 14px);
 
-    &::after {
+    &::before {
       content: '';
       width: 109px;
       height: 101px;
@@ -72,7 +119,7 @@
     margin-left: 27px;
     margin-bottom: 58px;
 
-    &::after {
+    &::before {
       content: '';
       width: 153px;
       height: 143px;
@@ -92,7 +139,7 @@
     width: 180px;
     margin-left: 45px;
     margin-bottom: 63px;
-    &::after {
+    &::before {
       content: '';
       width: 153px;
       height: 143px;
