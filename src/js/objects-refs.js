@@ -10,7 +10,7 @@ export const refs = {
     aboutAuthorBtn: document.querySelector('.btn-primary'),
     modalContainer: document.querySelector('.info-container'),
     modalWindow: document.querySelector('.modal'),
-    paginationContainer: document.querySelector('.menu-pagination'),
-    paginationBtn: document.querySelector('.pagination-btn'),
+    paginationContainer: document.querySelector('.tui-pagination'),
+    
 };
 
