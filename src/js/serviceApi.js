@@ -216,6 +216,7 @@ container.addEventListener('click', (e) => {
       const evt = data._embedded.events;
       urlImage(evt);
       appendEventMarkup(evt);
+      fetchData = evt;
     })
 
    
