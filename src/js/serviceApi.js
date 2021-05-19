@@ -2,6 +2,8 @@ import templCardsForRender from '../templates/templCard.hbs';
 import { refs } from './objects-refs';
 import tamplateCountryName from '../templates/countryName.hbs';
 import arrCountries from './countries-name';
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
 
 
 import debounce from 'lodash.debounce';
@@ -12,6 +14,7 @@ import '@pnotify/core/dist/BrightTheme.css';
 import { alert, notice, info, success, error } from '@pnotify/core';
 import { defaults } from '@pnotify/core';
 defaults.addClass = 'my-pnotify';
+
 // ===============================================================================
 
 
@@ -20,6 +23,9 @@ const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
 
 let defaultEventCountry = '';
 let keyword = '';
+
+let pageNumber = 1;
+let fetchData = '';
 
 const countCardOnPage = function getPagesSize() {
   if (window.innerWidth > 768 && window.innerWidth < 1280) {
@@ -46,7 +52,7 @@ function formChooseHandler(e) {
 }
 function searchCountryOfName(countryCode) {
 
-    fetch(`${BASE_URL}/events.json?countryCode=${countryCode}&keyword=${keyword}&size=${countCardOnPage()}&apikey=${KEY}`)
+  fetchData =    fetch(`${BASE_URL}/events.json?countryCode=${countryCode}&keyword=${keyword}&size=${countCardOnPage()}&apikey=${KEY}`)
         .then(res => {
             if (!res.ok) {
                 throw res;
@@ -57,21 +63,27 @@ function searchCountryOfName(countryCode) {
             const event = data._embedded.events
             
             urlImage(event);
+
             appendEventMarkup(event);
-            
+            fetchData = event;
+
         })
-        .catch(error => {
+      .catch(error => {
             notice({
-                text: "В этой стране нет мероприятий! Выберите другую страну!"
+
+                text: "There are no events in this country! Please select another country!"
                 });
             console.log(error)
-
         })
+        
 };
+
 // ====================================================================================
 
-const fetchData = fetch(
-  `${BASE_URL}/events.json?countryCode=${defaultEventCountry}&keyword=${keyword}&size=${countCardOnPage()}&apikey=${KEY}`,
+
+fetchData = fetch(
+  `${BASE_URL}/events.json?page=${pageNumber}&countryCode=${defaultEventCountry}&keyword=${keyword}&size=${countCardOnPage()}&apikey=${KEY}`,
+
 )
   .then(res => {
     if (!res.ok) {
@@ -80,25 +92,28 @@ const fetchData = fetch(
     return res.json();
   })
   .then(data => {
+    // console.log(data)
     return data;
+    
   })
   .catch(error => {
     notice({
-                text: "Упс! Что-то странное происходит..."
+                text: "Oops, something wrong..."
     });
     console.log(error)
   });
 
 fetchData.then(data => {
   const event = data._embedded.events;
-
+  // console.log(event)
   urlImage(event);
  
   appendEventMarkup(event);
-  console.log(event);
 
+  console.log(event);
+  fetchData = event;
 });
-console.log(fetchData);
+// console.log(fetchData);
 
 function appendEventMarkup(event) {
   refs.cardListEl.innerHTML = templCardsForRender(event);
@@ -114,8 +129,6 @@ function urlImage(event) {
 export { fetchData, urlImage };
 // 
   
-  
-
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++EventSearchByKeyword++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   
 refs.formSearchEl.addEventListener('input', debounce(onSearch, 800))
@@ -123,7 +136,7 @@ refs.formSearchEl.addEventListener('input', debounce(onSearch, 800))
 function onSearch(e) {
   let searchQuery = e.target.value;
   keyword = searchQuery;
-  return fetch(
+  fetchData =   fetch(
     `${BASE_URL}/events.json?keyword=${keyword}&countryCode=${defaultEventCountry}&size=${countCardOnPage()}&apikey=${KEY}`,
   
   )
@@ -143,8 +156,69 @@ function onSearch(e) {
       urlImage(data)
       console.log(data);
       appendEventMarkup(data)
+      fetchData = data;
     })
       
     .catch(error => console.log(error))
 }
 
+// ============================== PAGINATION ========================================
+// const instance = new Pagination(refs.paginationContainer, {  });
+const options = {
+  totalItems: 980,
+  itemsPerPage: 20,
+  visiblePages: 7,
+  page: 1,
+  centerAlign: true,
+  firstItemClassName: 'tui-first-child',
+  lastItemClassName: 'tui-last-child',
+  template: {
+    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    moveButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</a>',
+    disabledMoveButton:
+      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</span>',
+    moreButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>'
+  }
+};
+
+const container = refs.paginationContainer;
+const pagination = new Pagination(container, options);
+
+
+
+container.addEventListener('click', (e) => {
+  if (e.target.textContent === 'first') {
+    pageNumber = 1;
+  } else if (e.target.textContent === 'last') {
+    pageNumber = 49;
+  } else if (e.target.textContent === 'next') {
+    pageNumber += 1;
+  } else if (e.target.textContent === 'prev') {
+    pageNumber -= 1;
+  } else { pageNumber = Number(e.target.textContent); }
+    
+    
+  
+  console.log(e.target.textContent);
+  fetch(`${BASE_URL}/events.json?page=${pageNumber}&countryCode=${defaultEventCountry}&keyword=${keyword}&size=${countCardOnPage()}&apikey=${KEY}`,
+  )
+    .then(res => res.json())
+    .then(data => {
+      const evt = data._embedded.events;
+      urlImage(evt);
+      appendEventMarkup(evt);
+      fetchData = evt;
+    })
+
+   
+})
+// ==================================================================================
