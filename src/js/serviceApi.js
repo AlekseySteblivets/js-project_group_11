@@ -63,7 +63,7 @@ function searchCountryOfName(countryCode) {
         })
         .catch(error => {
             notice({
-                text: "В этой стране нет мероприятий! Выберите другую страну!"
+                text: "There are no events in this country! Please select another country!"
                 });
             console.log(error)
             
