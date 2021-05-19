@@ -23,7 +23,9 @@ const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
 
 let defaultEventCountry = '';
 let keyword = '';
+
 let pageNumber = 1;
+let fetchData = '';
 
 const countCardOnPage = function getPagesSize() {
   if (window.innerWidth > 768 && window.innerWidth < 1280) {
@@ -50,7 +52,7 @@ function formChooseHandler(e) {
 }
 function searchCountryOfName(countryCode) {
 
-    fetch(`${BASE_URL}/events.json?countryCode=${countryCode}&keyword=${keyword}&size=${countCardOnPage()}&apikey=${KEY}`)
+  fetchData =    fetch(`${BASE_URL}/events.json?countryCode=${countryCode}&keyword=${keyword}&size=${countCardOnPage()}&apikey=${KEY}`)
         .then(res => {
             if (!res.ok) {
                 throw res;
@@ -61,19 +63,27 @@ function searchCountryOfName(countryCode) {
             const event = data._embedded.events
             
             urlImage(event);
-            appendEventMarkup(event);  
+
+            appendEventMarkup(event);
+            fetchData = event;
+
         })
       .catch(error => {
             notice({
-                text: "There is no events in this country!"
+
+                text: "There are no events in this country! Please select another country!"
                 });
             console.log(error)
         })
+        
 };
+
 // ====================================================================================
 
-const fetchData = fetch(
+
+fetchData = fetch(
   `${BASE_URL}/events.json?page=${pageNumber}&countryCode=${defaultEventCountry}&keyword=${keyword}&size=${countCardOnPage()}&apikey=${KEY}`,
+
 )
   .then(res => {
     if (!res.ok) {
@@ -84,6 +94,7 @@ const fetchData = fetch(
   .then(data => {
     // console.log(data)
     return data;
+    
   })
   .catch(error => {
     notice({
@@ -98,9 +109,9 @@ fetchData.then(data => {
   urlImage(event);
  
   appendEventMarkup(event);
- 
-  // console.log(event);
 
+  console.log(event);
+  fetchData = event;
 });
 // console.log(fetchData);
 
@@ -125,7 +136,7 @@ refs.formSearchEl.addEventListener('input', debounce(onSearch, 800))
 function onSearch(e) {
   let searchQuery = e.target.value;
   keyword = searchQuery;
-  return fetch(
+  fetchData =   fetch(
     `${BASE_URL}/events.json?keyword=${keyword}&countryCode=${defaultEventCountry}&size=${countCardOnPage()}&apikey=${KEY}`,
   
   )
@@ -145,7 +156,7 @@ function onSearch(e) {
       urlImage(data)
       console.log(data);
       appendEventMarkup(data)
-      // pagination();
+      fetchData = data;
     })
       
     .catch(error => console.log(error))

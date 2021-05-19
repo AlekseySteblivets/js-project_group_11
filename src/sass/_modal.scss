@@ -46,6 +46,7 @@
   position: relative;
 }
 .info-container__img {
+  
   width: 102px;
   height: 102px;
   border-radius: 50%;
@@ -57,6 +58,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .info-container__other {
