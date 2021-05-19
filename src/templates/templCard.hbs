@@ -6,7 +6,13 @@
 </div>
     <p class="main-card-info"> {{name}}</p>
     <span class="main-card-description"> {{dates.start.localDate}} </span>
-    <span class="main-card-description"> {{_embedded.venues.0.name}}</span>
+    <span class="main-card-description"> <a href="">
+        <a href="https://maps.google.com?daddr={{_embedded.venues.0.location.latitude}},{{_embedded.venues.0.location.longitude}}"
+            target="_blank">
+            <svg class="place-icon" role="img">
+                <use href="./images/sprite.svg#icon-place"></use>
+            </svg>
+    {{_embedded.venues.0.name}}</a></span>
 
 </li>
 
