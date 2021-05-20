@@ -60,6 +60,9 @@ function searchCountryOfName(countryCode) {
             return res.json();
         })
         .then(data => {
+            pagination._options.totalItems = Math.ceil(data.page.totalElements / 20);
+            pagination.movePageTo(1);
+            pageNumber = 1;
             const event = data._embedded.events
           
             urlImage(event);
@@ -92,6 +95,7 @@ fetchData = fetch(
     return res.json();
   })
   .then(data => {
+    
     // console.log(data)
     return data;
     
@@ -104,6 +108,9 @@ fetchData = fetch(
   });
 
 fetchData.then(data => {
+  pagination._options.totalItems = Math.ceil(data.page.totalElements / 20);
+  pagination.movePageTo(1);
+  pageNumber = 1;
   const event = data._embedded.events;
   // console.log(event)
   urlImage(event);
@@ -148,15 +155,18 @@ function onSearch(e) {
       return res.json();
     })
     .then(data => {
-    
-      return data._embedded.events;
+      
+      return data;
       
     })
     .then(data => {
-      urlImage(data)
-      console.log(data);
-      appendEventMarkup(data)
-      fetchData = data;
+      const evt = data._embedded.events;
+      pagination._options.totalItems = Math.ceil(data.page.totalElements / 20);
+      pagination.movePageTo(1);
+      urlImage(evt)
+      console.log(evt);
+      appendEventMarkup(evt)
+      fetchData = evt;
     })
       
     .catch(error => console.log(error))
@@ -169,22 +179,23 @@ const options = {
   itemsPerPage: 20,
   visiblePages: 7,
   page: 1,
+  
   centerAlign: true,
-  // firstItemClassName: 'tui-first-child',
-  // lastItemClassName: 'tui-last-child',
+  firstItemClassName: 'tui-first-child',
+  lastItemClassName: 'tui-last-child',
   template: {
-    page: '<a href="#" class=" pagination-link">{{page}}</a>',
-    currentPage: '<strong class=" pagination-link active">{{page}}</strong>',
+    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
     moveButton:
-      '<a href="#" class=" pagination-link ">' +
+      '<a href="#" class="tui-page-btn tui-{{type}}">' +
       '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</a>',
     disabledMoveButton:
-      '<span class="pagination-link ">' +
-      '<span class="pagination-link"></span>' +
+      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</span>',
     moreButton:
-      '<a href="#" class="pagination-link">' +
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
       '<span class="tui-ico-ellip">...</span>' +
       '</a>'
   }
@@ -214,6 +225,10 @@ function onPaginationClick(e) {
   )
     .then(res => res.json())
     .then(data => {
+      pagination._options.totalItems = Math.ceil(data.page.totalElements / 20);
+      
+      console.log(data);
+      console.log(pagination._options.totalItems);
       console.log(options.page)
       const evt = data._embedded.events;
       urlImage(evt);
