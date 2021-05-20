@@ -1,11 +1,14 @@
 .tui-pagination {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   width: 233px;
   height: 30px;
   margin-bottom: 60px;
   margin-right: auto;
   margin-left: auto;
+  @media screen and (min-width: 768px) {
+    justify-content: space-around;
+  }
 }
 .tui-page-btn {
   cursor: pointer;
