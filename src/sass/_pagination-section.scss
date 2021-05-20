@@ -194,9 +194,18 @@
     width: 6px;
     height: 9px;
     margin-right: 3px;
+
     @media screen and (min-width: 768px) {
       width: 7px;
       height: 10px;
     }
+  }
+}
+
+.hover {
+  color: $white-color;
+  &:hover,
+  :focus {
+    color: $accent-text-color;
   }
 }
