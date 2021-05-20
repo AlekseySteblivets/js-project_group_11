@@ -5,83 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Event Booster</title>
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+
   </head>
 
   <body>
+    <div class="preloader">
+      <div class="preloader__image"></div>
+    </div>
+
+  
     <header class="header">
       <div class="container header-container">
         <a class="header-container__logo" href="./index.html">
-        <svg class="icon-logo" role="img" width="110" height="90">
-          <use href="./images/sprite.svg#icon-logo-mobile"></use>
-        </svg>
+          <svg class="icon-logo" role="img" width="110" height="90">
+            <use href="./images/sprite.svg#icon-logo-mobile"></use>
+          </svg>
         </a>
+
         <h1 class="hero-title animate__animated animate__fadeInDown">FIND BEST EVENTS <br>AROUND THE WORLD</h1>
+
         <form class="form-search js-form" id="search">
           <div class="widget-input">
-          <svg class="search-icon" role="img">
-            <use href="./images/sprite.svg#search-icon"></use>
-          </svg>
-          <input class="input js-form__search" type="text" name="#" id="start" placeholder="Start searching" />
+            <svg class="search-icon" role="img">
+              <use href="./images/sprite.svg#search-icon"></use>
+            </svg>
+            <input
+              class="input js-form__search"
+              type="text"
+              name="#"
+              id="start"
+              placeholder="Start searching"
+            />
           </div>
           <div class="widget-input">
-          <svg class="choose-icon" role="img">
-            <use href="./images/sprite.svg#Polygon-1"></use>
-          </svg>
-          <select class="input input-choose js-form__choose" name="Choose country" id="choose">
-            <option value="#">Choose country</option>
-          </select>
+            <svg class="choose-icon" role="img">
+              <use href="./images/sprite.svg#Polygon-1"></use>
+            </svg>
+            <select
+              class="input input-choose js-form__choose"
+              name="Choose country"
+              id="choose"
+            >
+              <option value="#">Choose country</option>
+            </select>
           </div>
         </form>
-        </div>
-      
+      </div>
     </header>
-<main>
+     <main class="main">
     <section class="container background">
       <!-- <section class=" background"> -->
     
      <div class="main-cards-list">
       <!-- <div class="container"> -->
        <ul class="main-cards">
-
-       </ul>   
-      </div>
-      
-<div class="tui-pagination" id="pagination"></div>
-
+     </div>
     <div class="to-top animate__animated animate__bounceInRight">
       <svg class="to-top-icon">
         <use href="./images/sprite.svg#up-icon">
       </svg>
+    </div>   
+  <div class="block ">
+    <div class="tui-pagination menu-pagination" id="pagination"></div>
+  </div>    
       <!-- ====================== MODAL WINDOW ===================================== -->
-      <div class="modal">
-        <div class="modal-container">
-          <button class="modal-close__btn">
-            <svg class="modal-close__svg">
-              <use href="./images/sprite.svg#icon-close"></use>
-            </svg>
-          </button>
-          <div class="info-container">
-            
+        <div class="modal">
+          <div class="modal-container">
+            <button class="modal-close__btn">
+              <svg class="modal-close__svg">
+                <use href="./images/sprite.svg#icon-close"></use>
+              </svg>
+            </button>
+            <div class="info-container"></div>
+            <button 
+             type="button"
+             class="btn btn-primary button" 
+             data-action="load-more">
+              <a class="label" href="">MORE FROM THIS AUTHOR</a>
+            </button>
+
           </div>
-          <button type="button" class="btn btn-primary button" data-action="load-more">
-            <a class="label" href="">MORE FROM THIS AUTHOR</a>
-          </button>
         </div>
-       </div>
         <!-- ================================================================================== -->
+
+<!-- 
+        <a href="#" class="scrollToTop">
+          <img
+            class="to-top"
+            src="./images/image-asset.jpeg"
+            alt="to-top"
+            width="80"
+            height="80"
+          />
+        </a> -->
+    
+    </section>
     </main>
     <footer class="footer">
-        <p class = "footer-text"> &copy 2021 | All Rights Reserved | Developed with
+      <div class="footer-wrap">
+        <p class = "footer-text">
+          &copy 2021 | All Rights Reserved | Developed with
+
           <svg class="footer-icon-svg" width="14" height="14">
-              <use href="./images/sprite.svg#heart"></use>
+            <use href="./images/sprite.svg#heart"></use>
           </svg>
-          by 
-          <a class="link" href="http://goit.ua" target="_blank" rel="noopener noreferrer">GoIT Students</a>
+          by
+          <a
+            class="link"
+            href="http://goit.ua"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GoIT Students</a
+          >
         </p>
-    </footer>
-    </section>
+
+
+        </div>
+    </footer>    
   </body>
 </html>
