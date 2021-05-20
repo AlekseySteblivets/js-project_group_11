@@ -51,8 +51,8 @@ function formChooseHandler(e) {
   searchCountryOfName(countryCode);
 }
 function searchCountryOfName(countryCode) {
-
-  fetchData =    fetch(`${BASE_URL}/events.json?countryCode=${countryCode}&keyword=${keyword}&size=${countCardOnPage()}&apikey=${KEY}`)
+  
+  fetchData =    fetch(`${BASE_URL}/events.json?page=${pageNumber}&countryCode=${countryCode}&keyword=${keyword}&size=${countCardOnPage()}&apikey=${KEY}`)
         .then(res => {
             if (!res.ok) {
                 throw res;
@@ -61,7 +61,7 @@ function searchCountryOfName(countryCode) {
         })
         .then(data => {
             const event = data._embedded.events
-            
+          
             urlImage(event);
 
             appendEventMarkup(event);
@@ -163,30 +163,30 @@ function onSearch(e) {
 }
 
 // ============================== PAGINATION ========================================
-// const instance = new Pagination(refs.paginationContainer, {  });
+
 const options = {
   totalItems: 980,
   itemsPerPage: 20,
   visiblePages: 7,
   page: 1,
   centerAlign: true,
-  firstItemClassName: 'tui-first-child',
-  lastItemClassName: 'tui-last-child',
+  // firstItemClassName: 'tui-first-child',
+  // lastItemClassName: 'tui-last-child',
   template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    page: '<a href="#" class=" pagination-link">{{page}}</a>',
+    currentPage: '<strong class=" pagination-link active">{{page}}</strong>',
     moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<a href="#" class=" pagination-link ">' +
       '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</a>',
     disabledMoveButton:
-      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '<span class="pagination-link ">' +
+      // '<span class="pagination-link"></span>' +
       '</span>',
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>'
+    // moreButton:
+    //   '<a href="#" class="pagination-link">' +
+    //   // '<span class="tui-ico-ellip">...</span>' +
+    //   '</a>'
   }
 };
 
@@ -195,7 +195,8 @@ const pagination = new Pagination(container, options);
 
 
 
-container.addEventListener('click', (e) => {
+container.addEventListener('click', onPaginationClick);
+function onPaginationClick(e) {
   if (e.target.textContent === 'first') {
     pageNumber = 1;
   } else if (e.target.textContent === 'last') {
@@ -213,12 +214,12 @@ container.addEventListener('click', (e) => {
   )
     .then(res => res.json())
     .then(data => {
+      console.log(options.page)
       const evt = data._embedded.events;
       urlImage(evt);
       appendEventMarkup(evt);
       fetchData = evt;
     })
+};
 
-   
-})
 // ==================================================================================
