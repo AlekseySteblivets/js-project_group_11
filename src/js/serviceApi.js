@@ -181,12 +181,12 @@ const options = {
       '</a>',
     disabledMoveButton:
       '<span class="pagination-link ">' +
-      // '<span class="pagination-link"></span>' +
+      '<span class="pagination-link"></span>' +
       '</span>',
-    // moreButton:
-    //   '<a href="#" class="pagination-link">' +
-    //   // '<span class="tui-ico-ellip">...</span>' +
-    //   '</a>'
+    moreButton:
+      '<a href="#" class="pagination-link">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>'
   }
 };
 
