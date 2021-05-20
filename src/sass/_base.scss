@@ -77,6 +77,13 @@ body {
   // }
 }
 .background {
+  margin-top: 1px;
+  // height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  // background-color: $secondary-text-color;
+  z-index: 1;
+
   background-image: url(../images/mobile/bg-body-mobile.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -84,7 +91,9 @@ body {
   @media screen and (min-width: 768px) {
     background-image: url(../images/tablet/bg-body-tablet.jpg);
     // background-size: cover;
-    // background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    // background-size: 1300px 20px;
+    background-position: 5px 100px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -92,6 +101,9 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
   }
+}
+main {
+  position: relative;
 }
 
 h1,
@@ -106,6 +118,7 @@ h5 {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 ul,

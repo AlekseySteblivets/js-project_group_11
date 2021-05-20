@@ -55,53 +55,40 @@
         </form>
       </div>
     </header>
-
-    <section class="container background">
+    <main class="main">
+      <section class="container background">
       <!-- <section class=" background"> -->
-      <main>
+
+    <!-- <main> -->
         <div class="main-cards-list">
-          <!-- <div class="container"> -->
-          <ul class="main-cards"></ul>
+      <!-- <div class="container"> -->
+          <ul class="main-cards"></ul>   
         </div>
-
-
-       </ul>   
-      </div>
-      
-<div class="tui-pagination" id="pagination"></div>
-
-        <!-- <div class ="block">
-    <ul class="menu-pagination">   
-      <li class="pagination"><a class="pagination-link active"href="#">1</a></li>
-
-      <li class="pagination"><a class="pagination-link"href="#">2</a></li>
-      <li class="pagination"><a class="pagination-link"href="#">3</a></li>
-      <li class="pagination"><a class="pagination-link"href="#">4</a></li>
-      <li class="pagination"><a class="pagination-link"href="#">5</a></li>
-
-      <li class="uk-disabled"><span class="pagination-link disabled">...</span></li>
-      <li class="pagination"><a class="pagination-link" href="#">29</a></li>
-    </ul>
-    </div> -->
-     
+ 
+  <div class="block ">
+    <div class="tui-pagination menu-pagination" id="pagination"></div>
+  </div>    
       <!-- ====================== MODAL WINDOW ===================================== -->
-      <div class="modal">
-      
-        <div class="modal-container">
-          <button class="modal-close__btn">
-            <svg class="modal-close__svg">
-              <use href="./images/sprite.svg#icon-close"></use>
-            </svg>
-          </button>
-          <div class="info-container">
-            
+        <div class="modal">
+          <div class="modal-container">
+            <button class="modal-close__btn">
+              <svg class="modal-close__svg">
+                <use href="./images/sprite.svg#icon-close"></use>
+              </svg>
+            </button>
+            <div class="info-container"></div>
+            <button type="button" class="btn btn-primary button" data-action="load-more">
+              <a class="label" href="">MORE FROM THIS AUTHOR</a>
+            </button>
           </div>
         </div>
         <!-- ================================================================================== -->
-      </main>
-      <footer class="footer">
-        <p class="footer-text">
-          &copy 2021 | All Rights Reserved | Developed with
+
+    </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-wrap">
+        <p class = "footer-text"> &copy 2021 | All Rights Reserved | Developed with
           <svg class="footer-icon-svg" width="14" height="14">
             <use href="./images/sprite.svg#heart"></use>
           </svg>
@@ -114,7 +101,8 @@
             >GoIT Students</a
           >
         </p>
-      </footer>
-    </section>
+
+        </div>
+    </footer>    
   </body>
 </html>
