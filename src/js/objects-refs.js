@@ -11,6 +11,6 @@ export const refs = {
     modalContainer: document.querySelector('.info-container'),
     modalWindow: document.querySelector('.modal'),
     paginationContainer: document.querySelector('.tui-pagination'),
-    
+    toTop: document.querySelector('.to-top'),
 };
 

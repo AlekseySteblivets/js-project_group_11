@@ -3,7 +3,7 @@ import { refs } from './objects-refs';
 import tamplateCountryName from '../templates/countryName.hbs';
 import arrCountries from './countries-name';
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+// import 'tui-pagination/dist/tui-pagination.css';
 
 
 import debounce from 'lodash.debounce';
